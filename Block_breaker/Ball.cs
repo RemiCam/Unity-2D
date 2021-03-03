@@ -20,19 +20,21 @@ public class Ball : MonoBehaviour
     AudioSource myAudioSource;
     Rigidbody2D ballRigidBody2D;
     Level level;
-
-    // Start is called before the first frame update
-    void Start()
+    
+    private void Awake()
     {
         paddle1 = FindObjectOfType<Paddle>();
+    }
+    
+    private void Start()
+    {
         myAudioSource = GetComponent<AudioSource>();
         ballRigidBody2D = GetComponent<Rigidbody2D>();
         level = FindObjectOfType<Level>();
         CountBalls();
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
         if (!hasStarted)
         {
